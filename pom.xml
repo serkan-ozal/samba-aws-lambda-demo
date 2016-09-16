@@ -67,26 +67,21 @@
     </build>
     
    	<dependencies>
-   	
 		<dependency>
     		<groupId>tr.com.serkanozal</groupId>
     		<artifactId>samba</artifactId>
     		<version>${samba.version}</version>
 		</dependency>
-		
-		
 		<dependency>
     		<groupId>com.amazonaws</groupId>
     		<artifactId>aws-lambda-java-core</artifactId>
     		<version>${aws.sdk.lambda.java.api.version}</version>
 		</dependency>
-		
 		<dependency>
     		<groupId>org.apache.derby</groupId>
     		<artifactId>derby</artifactId>
     		<version>${derby.version}</version>
 		</dependency>
-		
 	</dependencies>
 
 </project>
