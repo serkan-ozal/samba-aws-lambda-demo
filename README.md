@@ -12,8 +12,12 @@ This handler is an AWS Lamda function that reuses database connections if they a
 Creating database connection each time while accessing to database doesn't make sense because creating connection is not cheap operation and increases latency. By this behaviour, mostly database connections are reused according to background logic of AWS lambda under the hood as mentioned 
 [here](https://aws.amazon.com/blogs/compute/container-reuse-in-lambda/) and [here](https://www.linkedin.com/pulse/aws-lambda-container-lifetime-config-refresh-frederik-willaert).
 
+[See](https://github.com/serkan-ozal/samba-aws-lambda-demo/blob/master/src/main/java/tr/com/serkanozal/samba/demo/aws_lambda/db_connection/DatabaseAccessHandler.java) for the handler code.
+
 2.2. Request Counter Handler
 --------------
 This handler is an AWS Lamda function that shares and processes a request counter atomically and globally through **Samba**. 
 
 In this handler, a long typed field (request counter) is shared globally via `TIERED` cache backed **Samba** field. Each lambda function invocation can increase this shared field value atomically and can retrieve its value with **eventual consistency** guarantee (means that every field access might not return fresh value but it will returns fresh value eventually).
+
+[See](https://github.com/serkan-ozal/samba-aws-lambda-demo/blob/master/src/main/java/tr/com/serkanozal/samba/demo/aws_lambda/request_counter/RequestCounterHandler.java) for the handler code.
